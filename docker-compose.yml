@@ -1,0 +1,6 @@
+services:
+  namedhttpclient.api:
+    image: ${DOCKER_REGISTRY-}namedhttpclientapi
+    build:
+      context: .
+      dockerfile: src/NamedHttpClient.API/Dockerfile
