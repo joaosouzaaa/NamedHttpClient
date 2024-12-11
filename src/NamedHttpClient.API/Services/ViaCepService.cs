@@ -9,7 +9,7 @@ public sealed class ViaCepService(IHttpClientFactory httpClientFactory) : IViaCe
 {
     public async Task<ViaCepResponse?> GetZipCodeInfoAsync(string zipCode, CancellationToken cancellationToken)
     {
-        using var httpClient = httpClientFactory.CreateClient(HttpClientNamesConstants.ViaCepHttpClientName);
+        var httpClient = httpClientFactory.CreateClient(HttpClientNamesConstants.ViaCepHttpClientName);
 
         var viaCepHttpResponseMessage = await httpClient.GetAsync($"/ws/{zipCode}/json/", cancellationToken);
 
